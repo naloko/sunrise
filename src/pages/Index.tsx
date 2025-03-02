@@ -46,7 +46,7 @@ const Index = () => {
                 Sunrise is dedicated to delivering all-encompassing solar solutions for both 
                 residential and commercial sectors across Nigeria.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link 
                   to="/contact" 
                   className="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-lg font-medium transition-all transform hover:scale-105"
@@ -59,6 +59,19 @@ const Index = () => {
                 >
                   Learn More
                 </Link>
+              </div>
+              
+              {/* Embedded YouTube Video */}
+              <div className="rounded-xl overflow-hidden shadow-2xl mt-6">
+                <iframe 
+                  width="100%" 
+                  height="315" 
+                  src="https://www.youtube.com/embed/TzfnlPxCZv0" 
+                  title="Sunrise Solar Solutions Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                  className="border-0"
+                ></iframe>
               </div>
             </div>
           </div>
