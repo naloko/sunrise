@@ -3,228 +3,62 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #e6b323;
+  --primary-dark: #d4a31c;
+  --secondary: #4a5568;
+}
+
 @layer base {
-  :root {
-    --background: 210 33% 99%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 25 95% 53%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 25 95% 53%;
-
-    --radius: 0.75rem;
-  }
-
-  * {
-    @apply border-border scroll-smooth;
-  }
-
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    @apply font-sans text-gray-900 antialiased;
+  }
+
+  /* Typography styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Hero section styling */
+  .hero-video-container {
+    @apply absolute inset-0 overflow-hidden;
+  }
+
+  .hero-video {
+    @apply w-full h-full object-cover;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70;
+  }
+
+  /* Button Styles */
+  .glass-button {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-8 rounded-lg font-medium transition-all hover:bg-white/20;
   }
 }
 
 @layer components {
-  .hero-content {
-    @apply relative z-10 text-white;
+  /* Section heading styles */
+  .section-subheading {
+    @apply text-primary text-sm md:text-base uppercase tracking-wider font-medium mb-2 block;
   }
 
   .section-heading {
     @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight;
   }
 
-  .section-subheading {
-    @apply text-sm md:text-base uppercase tracking-wider font-medium text-primary mb-2;
-  }
-
-  .badge {
-    @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors 
-    focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/30 bg-primary/10;
+  /* Card styles */
+  .product-card {
+    @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg;
   }
 
   .service-card {
-    @apply relative overflow-hidden rounded-xl border bg-card p-6 shadow-sm transition-all hover:shadow-md;
+    @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg;
   }
 
-  .product-card {
-    @apply relative overflow-hidden rounded-xl border bg-card p-6 shadow-sm transition-all hover:shadow-md;
+  /* Badge styles */
+  .badge {
+    @apply inline-block bg-primary/10 text-primary text-xs font-medium py-1 px-3 rounded-full;
   }
-
-  .glass-card {
-    @apply backdrop-blur-sm bg-white/30 border border-white/20 shadow-lg rounded-xl;
-  }
-
-  .glass-button {
-    @apply bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-lg 
-    font-medium transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-/* Custom Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.7s ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.7s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.7s ease-out forwards;
-}
-
-.animate-pulse-slow {
-  animation: pulse 3s infinite;
-}
-
-.animation-delay-100 {
-  animation-delay: 100ms;
-}
-
-.animation-delay-200 {
-  animation-delay: 200ms;
-}
-
-.animation-delay-300 {
-  animation-delay: 300ms;
-}
-
-.animation-delay-400 {
-  animation-delay: 400ms;
-}
-
-.animation-delay-500 {
-  animation-delay: 500ms;
-}
-
-/* Hero Video Background */
-.hero-video-container {
-  @apply absolute inset-0 w-full h-full overflow-hidden;
-}
-
-.hero-video {
-  @apply absolute inset-0 w-full h-full object-cover;
-  filter: brightness(0.7);
-}
-
-.hero-overlay {
-  @apply absolute inset-0 bg-black/50 z-10;
-}
-
-/* Stylish scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
