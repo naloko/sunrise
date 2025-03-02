@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { 
   Sun, 
@@ -22,17 +21,14 @@ const Index = () => {
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center">
         <div className="hero-video-container">
-          <video 
+          <iframe 
             className="hero-video"
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-          >
-            <source src="https://www.pexels.com/video/solar-panel-farm-use-for-energy-production-4324109/" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            src="https://www.youtube.com/embed/TzfnlPxCZv0?autoplay=1&mute=1&loop=1&playlist=TzfnlPxCZv0&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1" 
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Sunrise Solar Solutions Background Video"
+          ></iframe>
           <div className="hero-overlay"></div>
         </div>
 
@@ -46,7 +42,7 @@ const Index = () => {
                 Sunrise is dedicated to delivering all-encompassing solar solutions for both 
                 residential and commercial sectors across Nigeria.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   to="/contact" 
                   className="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-lg font-medium transition-all transform hover:scale-105"
@@ -59,19 +55,6 @@ const Index = () => {
                 >
                   Learn More
                 </Link>
-              </div>
-              
-              {/* Embedded YouTube Video */}
-              <div className="rounded-xl overflow-hidden shadow-2xl mt-6">
-                <iframe 
-                  width="100%" 
-                  height="315" 
-                  src="https://www.youtube.com/embed/TzfnlPxCZv0" 
-                  title="Sunrise Solar Solutions Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  className="border-0"
-                ></iframe>
               </div>
             </div>
           </div>
