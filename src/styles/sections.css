@@ -1,0 +1,26 @@
+
+/* Section styling */
+.section-subheading {
+  position: relative;
+  display: inline-block;
+}
+
+.section-subheading::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+.section-heading {
+  margin-top: 15px;
+  background: linear-gradient(90deg, var(--primary), #f0cc66);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

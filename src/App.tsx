@@ -13,6 +13,7 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
+import "./styles/index.css";
 
 const queryClient = new QueryClient();
 

@@ -1,0 +1,11 @@
+
+/* Import all modular CSS files */
+@import './layout.css';
+@import './hero.css';
+@import './badge.css';
+@import './sections.css';
+@import './cards.css';
+@import './utilities.css';
+@import './effects.css';
+@import './language-selector.css';
+@import './buttons.css';
