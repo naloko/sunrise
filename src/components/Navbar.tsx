@@ -2,35 +2,40 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sun } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface NavLink {
   path: string;
   label: string;
+  translationKey: string;
 }
 
 const navLinks: NavLink[] = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About Us' },
-  { path: '/products', label: 'Products' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/', label: 'Home', translationKey: 'navigation.home' },
+  { path: '/about', label: 'About Us', translationKey: 'navigation.about' },
+  { path: '/products', label: 'Products', translationKey: 'navigation.products' },
+  { path: '/projects', label: 'Projects', translationKey: 'navigation.projects' },
+  { path: '/contact', label: 'Contact', translationKey: 'navigation.contact' },
 ];
 
 interface LanguageFlag {
   code: string;
   name: string;
   flag: string;
+  translationKey: string;
 }
 
 const languages: LanguageFlag[] = [
   { 
     code: 'en', 
     name: 'English', 
+    translationKey: 'language.english',
     flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/NG.svg' 
   },
   { 
     code: 'zh', 
     name: 'Chinese', 
+    translationKey: 'language.chinese',
     flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg' 
   }
 ];
@@ -38,8 +43,9 @@ const languages: LanguageFlag[] = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState<string>(i18n.language || 'en');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,18 +65,9 @@ const Navbar = () => {
   }, [location]);
 
   const changeLanguage = (langCode: string) => {
+    i18n.changeLanguage(langCode);
     setCurrentLanguage(langCode);
-    // In a real implementation, you would use i18n libraries like i18next
-    // This is a placeholder for the translation functionality
-    if (langCode === 'zh') {
-      console.log('Switching to Chinese');
-      // Translation logic would go here
-      document.documentElement.lang = 'zh';
-    } else {
-      console.log('Switching to English');
-      // Translation logic would go here
-      document.documentElement.lang = 'en';
-    }
+    document.documentElement.lang = langCode;
   };
 
   return (
@@ -85,7 +82,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <Sun className="h-8 w-8 text-primary" aria-hidden="true" />
-            <span className={`text-xl font-bold ${isScrolled || isMenuOpen ? 'text-foreground' : 'text-white'}`}>
+            <span className={`text-xl font-bold ${isScrolled || isMenuOpen ? 'text-foreground gradient-text' : 'text-white gradient-text'}`}>
               SUNRISE
             </span>
           </Link>
@@ -96,16 +93,16 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`
-                  text-sm font-medium transition-colors relative
+                  text-sm font-medium transition-colors relative hover-underline
                   ${isScrolled 
-                    ? 'text-foreground hover:text-primary' 
+                    ? 'text-gradient text-blue-600 hover:text-primary' 
                     : 'text-white/80 hover:text-white'}
                   ${location.pathname === link.path 
-                    ? 'after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary' 
+                    ? 'after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary text-amber-400' 
                     : ''}
                 `}
               >
-                {link.label}
+                {t(link.translationKey)}
               </Link>
             ))}
           </nav>
@@ -117,10 +114,10 @@ const Navbar = () => {
                 px-4 py-2 rounded-lg text-sm font-medium transition-colors
                 ${isScrolled 
                   ? 'bg-primary text-white hover:bg-primary/90' 
-                  : 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20'}
+                  : 'glass-button'}
               `}
             >
-              Get A Quote
+              {t('cta.quote')}
             </Link>
             
             <div className="flex items-center space-x-2 ml-4">
@@ -128,16 +125,16 @@ const Navbar = () => {
                 <button
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code)}
-                  className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${
+                  className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all flag-button ${
                     currentLanguage === lang.code 
                       ? 'border-primary scale-110' 
                       : 'border-transparent opacity-70 hover:opacity-100'
                   }`}
-                  aria-label={`Switch to ${lang.name}`}
+                  aria-label={`Switch to ${t(lang.translationKey)}`}
                 >
                   <img 
                     src={lang.flag} 
-                    alt={lang.name} 
+                    alt={t(lang.translationKey)} 
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -182,22 +179,22 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               className={`
-                py-2 text-foreground text-base font-medium border-b border-gray-100
+                py-2 text-blue-600 text-base font-medium border-b border-gray-100
                 ${location.pathname === link.path ? 'text-primary' : ''}
               `}
             >
-              {link.label}
+              {t(link.translationKey)}
             </Link>
           ))}
           <Link
             to="/contact"
             className="bg-primary text-white rounded-lg py-3 px-4 text-center font-medium mt-2"
           >
-            Get A Quote
+            {t('cta.quote')}
           </Link>
           
           <div className="flex items-center space-x-3 py-2">
-            <span className="text-sm text-gray-500">Language:</span>
+            <span className="text-sm text-gray-500">{t('common.language')}</span>
             {languages.map((lang) => (
               <button
                 key={lang.code}
@@ -207,11 +204,11 @@ const Navbar = () => {
                     ? 'border-primary' 
                     : 'border-transparent opacity-70'
                 }`}
-                aria-label={`Switch to ${lang.name}`}
+                aria-label={`Switch to ${t(lang.translationKey)}`}
               >
                 <img 
                   src={lang.flag} 
-                  alt={lang.name} 
+                  alt={t(lang.translationKey)} 
                   className="w-full h-full object-cover"
                 />
               </button>

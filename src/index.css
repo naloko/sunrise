@@ -12,6 +12,10 @@
   --success: #48BB78;
   --warning: #ED8936;
   --danger: #F56565;
+  --text-blue: #3182ce;
+  --text-purple: #805ad5;
+  --text-orange: #dd6b20;
+  --text-green: #38a169;
 }
 
 @layer base {
@@ -22,6 +26,26 @@
   /* Typography styles */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-blue-600;
+  }
+
+  h2 {
+    @apply text-indigo-600;
+  }
+
+  h3 {
+    @apply text-purple-600;
+  }
+
+  p {
+    @apply text-gray-700 dark:text-gray-200;
+  }
+
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors;
   }
 
   /* Hero section styling */
@@ -54,6 +78,28 @@
     50% { transform: translate(20px, -20px) scale(1.05); }
     100% { transform: translate(-20px, 20px) scale(0.95); }
   }
+
+  /* Text color gradients */
+  .text-gradient {
+    background: linear-gradient(45deg, var(--text-blue), var(--text-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-warm-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--text-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-cool-gradient {
+    background: linear-gradient(45deg, var(--text-blue), var(--text-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 @layer components {
@@ -63,7 +109,7 @@
   }
 
   .section-heading {
-    @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight text-warm-gradient;
   }
 
   /* Card styles */
@@ -71,8 +117,16 @@
     @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg relative overflow-hidden;
   }
 
+  .product-card h3 {
+    @apply text-cool-gradient;
+  }
+
   .service-card {
     @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg relative overflow-hidden;
+  }
+
+  .service-card h3 {
+    @apply text-warm-gradient;
   }
 
   /* Badge styles */
@@ -100,6 +154,21 @@
     @apply absolute w-24 h-24 opacity-20;
     background-image: radial-gradient(var(--primary) 1px, transparent 1px);
     background-size: 8px 8px;
+  }
+
+  /* Colored list items */
+  ul.colored-list li {
+    @apply relative pl-6 mb-2 text-gray-700;
+  }
+
+  ul.colored-list li::before {
+    content: "•";
+    @apply absolute left-0 text-primary text-xl;
+  }
+
+  /* Colored blockquotes */
+  blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-gray-700;
   }
 }
 
@@ -173,3 +242,15 @@
   width: 80%;
 }
 
+/* Flag button animations */
+.flag-button {
+  @apply transition-transform duration-300;
+}
+
+.flag-button:hover {
+  @apply transform scale-110;
+}
+
+.flag-button.active {
+  @apply ring-2 ring-primary ring-offset-2;
+}
