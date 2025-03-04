@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sun } from 'lucide-react';
@@ -12,7 +11,6 @@ const navLinks: NavLink[] = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About Us' },
   { path: '/products', label: 'Products' },
-  { path: '/solutions', label: 'Solutions' },
   { path: '/projects', label: 'Projects' },
   { path: '/contact', label: 'Contact' },
 ];
@@ -35,7 +33,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when changing pages
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
@@ -50,7 +47,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <Sun className="h-8 w-8 text-primary" aria-hidden="true" />
             <span className={`text-xl font-bold ${isScrolled || isMenuOpen ? 'text-foreground' : 'text-white'}`}>
@@ -58,7 +54,6 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -79,7 +74,6 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Contact button (Desktop) */}
           <div className="hidden md:flex">
             <Link
               to="/contact"
@@ -94,7 +88,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -121,7 +114,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div 
         className={`md:hidden absolute w-full bg-white/95 backdrop-blur-md transition-all duration-300 ${
           isMenuOpen ? 'max-h-screen py-4 shadow-lg' : 'max-h-0 overflow-hidden'

@@ -23,7 +23,7 @@ const Index = () => {
         <div className="hero-video-container">
           <iframe 
             className="hero-video"
-            src="https://www.youtube.com/embed/TzfnlPxCZv0?autoplay=1&mute=1&loop=1&playlist=TzfnlPxCZv0&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&version=3&vq=hd1080&enablejsapi=1" 
+            src="https://www.youtube.com/embed/TzfnlPxCZv0?autoplay=1&mute=1&loop=1&playlist=TzfnlPxCZv0&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&version=3&vq=hd1080&enablejsapi=1&iv_load_policy=3&fs=0&annotation=0" 
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
