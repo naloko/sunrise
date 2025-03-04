@@ -1,22 +1,12 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
-
 const About = () => {
-  return (
-    <main>
+  return <main>
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center">
         <div className="hero-video-container">
-          <video 
-            className="hero-video"
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-          >
+          <video className="hero-video" autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
             <source src="https://www.pexels.com/video/solar-panel-farm-use-for-energy-production-4324109/" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -176,14 +166,10 @@ const About = () => {
             <AnimatedSection animation="scale-in" delay={100}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <div className="h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" 
-                    alt="Team Member" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" alt="Team Member" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-1">John Smith</h3>
+                  <h3 className="text-xl font-semibold mb-1">Erin Xing</h3>
                   <p className="text-primary font-medium mb-3">Chief Executive Officer</p>
                   <p className="text-gray-600 mb-4">
                     With over 15 years of experience in the renewable energy sector, John leads our team with vision and expertise.
@@ -195,11 +181,7 @@ const About = () => {
             <AnimatedSection animation="scale-in" delay={200}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <div className="h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" 
-                    alt="Team Member" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Team Member" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-1">Sarah Johnson</h3>
@@ -214,11 +196,7 @@ const About = () => {
             <AnimatedSection animation="scale-in" delay={300}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <div className="h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80" 
-                    alt="Team Member" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80" alt="Team Member" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-1">Michael Adebayo</h3>
@@ -243,16 +221,10 @@ const About = () => {
                 Partner with Sunrise Solar and be part of the renewable energy revolution in Nigeria.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link 
-                  to="/contact" 
-                  className="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-lg font-medium transition-all transform hover:scale-105"
-                >
+                <Link to="/contact" className="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-lg font-medium transition-all transform hover:scale-105">
                   Contact Us Now
                 </Link>
-                <Link 
-                  to="/projects" 
-                  className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-8 rounded-lg font-medium transition-all hover:bg-white/20"
-                >
+                <Link to="/projects" className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-8 rounded-lg font-medium transition-all hover:bg-white/20">
                   View Our Projects
                 </Link>
               </div>
@@ -260,8 +232,6 @@ const About = () => {
           </div>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default About;
