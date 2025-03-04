@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -26,11 +25,12 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: 'var(--primary)',
+					dark: 'var(--primary-dark)',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
+					DEFAULT: 'var(--secondary)',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				destructive: {
@@ -42,7 +42,8 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
+					DEFAULT: 'var(--accent)',
+					light: 'var(--accent-light)',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
@@ -62,7 +63,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				success: 'var(--success)',
+				warning: 'var(--warning)',
+				danger: 'var(--danger)',
+				'text-blue': 'var(--text-blue)',
+				'text-purple': 'var(--text-purple)',
+				'text-orange': 'var(--text-orange)',
+				'text-green': 'var(--text-green)'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
@@ -103,7 +111,6 @@ export default {
 						transform: "translate(-50%,-40%) scale(1)",
 					},
 				},
-				// New animation keyframes
 				'fade-in': {
 					'0%': { opacity: '0' },
 					'100%': { opacity: '1' },
@@ -142,7 +149,6 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
 				'spotlight': 'spotlight 2s ease forwards',
-				// New animations
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'slide-up': 'slide-up 0.5s ease-out forwards',
 				'slide-in-left': 'slide-in-left 0.5s ease-out forwards',
