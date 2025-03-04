@@ -7,6 +7,11 @@
   --primary: #e6b323;
   --primary-dark: #d4a31c;
   --secondary: #4a5568;
+  --accent: #9F7AEA;
+  --accent-light: #D6BCFA;
+  --success: #48BB78;
+  --warning: #ED8936;
+  --danger: #F56565;
 }
 
 @layer base {
@@ -36,6 +41,19 @@
   .glass-button {
     @apply bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-8 rounded-lg font-medium transition-all hover:bg-white/20;
   }
+  
+  /* Animated background elements */
+  .animated-bg-element {
+    @apply absolute rounded-full opacity-20 -z-10;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    animation: float 15s infinite alternate ease-in-out;
+  }
+  
+  @keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -20px) scale(1.05); }
+    100% { transform: translate(-20px, 20px) scale(0.95); }
+  }
 }
 
 @layer components {
@@ -50,15 +68,108 @@
 
   /* Card styles */
   .product-card {
-    @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg;
+    @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg relative overflow-hidden;
   }
 
   .service-card {
-    @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg;
+    @apply bg-white p-6 rounded-xl shadow-md transition-all hover:shadow-lg relative overflow-hidden;
   }
 
   /* Badge styles */
   .badge {
     @apply inline-block bg-primary/10 text-primary text-xs font-medium py-1 px-3 rounded-full;
   }
+  
+  /* Link hover effects */
+  .hover-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-amber-400 bg-clip-text text-transparent;
+  }
+  
+  /* Custom scrollbar */
+  .custom-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-primary scrollbar-track-gray-200;
+  }
+  
+  /* Decorative elements */
+  .decorative-dots {
+    @apply absolute w-24 h-24 opacity-20;
+    background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
 }
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Apply scrollbar styles to the entire document */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Language selector styles */
+.language-selector {
+  position: relative;
+}
+
+.language-selector::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.language-selector:hover::after,
+.language-selector.active::after {
+  width: 80%;
+}
+

@@ -1,3 +1,4 @@
+
 /* Main layout styles */
 main {
   display: flex;
@@ -36,6 +37,81 @@ main {
   font-weight: 500;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Section styling */
+.section-subheading {
+  position: relative;
+  display: inline-block;
+}
+
+.section-subheading::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+.section-heading {
+  margin-top: 15px;
+  background: linear-gradient(90deg, var(--primary), #f0cc66);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Card styling enhancements */
+.product-card, .service-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.product-card:hover, .service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(230, 179, 35, 0.2);
+}
+
+.product-card::before, .service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), #f0cc66);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  border-radius: 4px 4px 0 0;
+}
+
+.product-card:hover::before, .service-card:hover::before {
+  transform: scaleX(1);
 }
 
 /* Utility classes */
@@ -59,4 +135,96 @@ main {
 nav, footer {
   position: relative;
   z-index: 50;
+}
+
+/* Glass effect styles */
+.glass-button {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s;
+  z-index: -1;
+}
+
+.glass-button:hover::before {
+  left: 100%;
+}
+
+/* Benefits card styling */
+.bg-gray-800\/50 {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.bg-gray-800\/50:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(230, 179, 35, 0.3);
+}
+
+/* Project card styling */
+.overflow-hidden.rounded-xl.shadow-md {
+  position: relative;
+}
+
+.overflow-hidden.rounded-xl.shadow-md::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overflow-hidden.rounded-xl.shadow-md:hover::after {
+  opacity: 1;
+}
+
+/* Language selection flags styling */
+.flag-button {
+  transition: all 0.3s ease;
+}
+
+.flag-button:hover {
+  transform: scale(1.1);
+}
+
+/* Call-to-action button enhancement */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.cta-button:hover::after {
+  opacity: 1;
+  transform: scale(1);
 }

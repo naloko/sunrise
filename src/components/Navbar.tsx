@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sun } from 'lucide-react';
@@ -15,9 +16,29 @@ const navLinks: NavLink[] = [
   { path: '/contact', label: 'Contact' },
 ];
 
+interface LanguageFlag {
+  code: string;
+  name: string;
+  flag: string;
+}
+
+const languages: LanguageFlag[] = [
+  { 
+    code: 'en', 
+    name: 'English', 
+    flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/NG.svg' 
+  },
+  { 
+    code: 'zh', 
+    name: 'Chinese', 
+    flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg' 
+  }
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
   const location = useLocation();
 
   useEffect(() => {
@@ -36,6 +57,21 @@ const Navbar = () => {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
+
+  const changeLanguage = (langCode: string) => {
+    setCurrentLanguage(langCode);
+    // In a real implementation, you would use i18n libraries like i18next
+    // This is a placeholder for the translation functionality
+    if (langCode === 'zh') {
+      console.log('Switching to Chinese');
+      // Translation logic would go here
+      document.documentElement.lang = 'zh';
+    } else {
+      console.log('Switching to English');
+      // Translation logic would go here
+      document.documentElement.lang = 'en';
+    }
+  };
 
   return (
     <header 
@@ -74,7 +110,7 @@ const Navbar = () => {
             ))}
           </nav>
 
-          <div className="hidden md:flex">
+          <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/contact"
               className={`
@@ -86,6 +122,27 @@ const Navbar = () => {
             >
               Get A Quote
             </Link>
+            
+            <div className="flex items-center space-x-2 ml-4">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => changeLanguage(lang.code)}
+                  className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${
+                    currentLanguage === lang.code 
+                      ? 'border-primary scale-110' 
+                      : 'border-transparent opacity-70 hover:opacity-100'
+                  }`}
+                  aria-label={`Switch to ${lang.name}`}
+                >
+                  <img 
+                    src={lang.flag} 
+                    alt={lang.name} 
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
 
           <button
@@ -138,6 +195,28 @@ const Navbar = () => {
           >
             Get A Quote
           </Link>
+          
+          <div className="flex items-center space-x-3 py-2">
+            <span className="text-sm text-gray-500">Language:</span>
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => changeLanguage(lang.code)}
+                className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${
+                  currentLanguage === lang.code 
+                    ? 'border-primary' 
+                    : 'border-transparent opacity-70'
+                }`}
+                aria-label={`Switch to ${lang.name}`}
+              >
+                <img 
+                  src={lang.flag} 
+                  alt={lang.name} 
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
         </nav>
       </div>
     </header>
