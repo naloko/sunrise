@@ -3,42 +3,11 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sun } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
-interface NavLink {
-  path: string;
-  label: string;
-  translationKey: string;
-}
-
-const navLinks: NavLink[] = [
-  { path: '/', label: 'Home', translationKey: 'navigation.home' },
-  { path: '/about', label: 'About Us', translationKey: 'navigation.about' },
-  { path: '/products', label: 'Products', translationKey: 'navigation.products' },
-  { path: '/projects', label: 'Projects', translationKey: 'navigation.projects' },
-  { path: '/contact', label: 'Contact', translationKey: 'navigation.contact' },
-];
-
-interface LanguageFlag {
-  code: string;
-  name: string;
-  flag: string;
-  translationKey: string;
-}
-
-const languages: LanguageFlag[] = [
-  { 
-    code: 'en', 
-    name: 'English', 
-    translationKey: 'language.english',
-    flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/NG.svg' 
-  },
-  { 
-    code: 'zh', 
-    name: 'Chinese', 
-    translationKey: 'language.chinese',
-    flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg' 
-  }
-];
+import { navLinks, languages } from './navbar/navData';
+import NavLink from './navbar/NavLink';
+import LanguageSelector from './navbar/LanguageSelector';
+import MobileMenu from './navbar/MobileMenu';
+import HamburgerButton from './navbar/HamburgerButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,21 +68,13 @@ const Navbar = () => {
 
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
-                to={link.path}
-                className={`
-                  text-sm font-medium transition-colors relative hover-underline
-                  ${isScrolled 
-                    ? 'text-gradient text-blue-600 hover:text-primary' 
-                    : 'text-white/80 hover:text-white'}
-                  ${location.pathname === link.path 
-                    ? 'after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary text-amber-400' 
-                    : ''}
-                `}
-              >
-                {t(link.translationKey)}
-              </Link>
+                path={link.path}
+                translationKey={link.translationKey}
+                isScrolled={isScrolled}
+                isActive={location.pathname === link.path}
+              />
             ))}
           </nav>
 
@@ -130,102 +91,29 @@ const Navbar = () => {
               {t('cta.quote')}
             </Link>
             
-            <div className="flex items-center space-x-2 ml-4">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => changeLanguage(lang.code)}
-                  className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all flag-button ${
-                    currentLanguage === lang.code 
-                      ? 'border-primary scale-110' 
-                      : 'border-transparent opacity-70 hover:opacity-100'
-                  }`}
-                  aria-label={`Switch to ${t(lang.translationKey)}`}
-                >
-                  <img 
-                    src={lang.flag} 
-                    alt={t(lang.translationKey)} 
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+            <LanguageSelector 
+              languages={languages}
+              currentLanguage={currentLanguage}
+              changeLanguage={changeLanguage}
+            />
           </div>
 
-          <button
-            className="md:hidden text-foreground"
+          <HamburgerButton 
+            isOpen={isMenuOpen}
+            isScrolled={isScrolled}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <div className={`w-6 h-5 flex flex-col justify-between relative ${isMenuOpen ? 'transform' : ''}`}>
-              <span 
-                className={`w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
-                } ${isScrolled ? 'bg-foreground' : 'bg-white'}`} 
-              />
-              <span 
-                className={`w-6 h-0.5 transition-all duration-300 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100'
-                } ${isScrolled ? 'bg-foreground' : 'bg-white'}`} 
-              />
-              <span 
-                className={`w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-                } ${isScrolled ? 'bg-foreground' : 'bg-white'}`} 
-              />
-            </div>
-          </button>
+          />
         </div>
       </div>
 
-      <div 
-        className={`md:hidden absolute w-full bg-white/95 backdrop-blur-md transition-all duration-300 ${
-          isMenuOpen ? 'max-h-screen py-4 shadow-lg' : 'max-h-0 overflow-hidden'
-        }`}
-      >
-        <nav className="container mx-auto px-4 flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`
-                py-2 text-blue-600 text-base font-medium border-b border-gray-100
-                ${location.pathname === link.path ? 'text-primary' : ''}
-              `}
-            >
-              {t(link.translationKey)}
-            </Link>
-          ))}
-          <Link
-            to="/contact"
-            className="bg-primary text-white rounded-lg py-3 px-4 text-center font-medium mt-2"
-          >
-            {t('cta.quote')}
-          </Link>
-          
-          <div className="flex items-center space-x-3 py-2">
-            <span className="text-sm text-gray-500">{t('common.language')}</span>
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => changeLanguage(lang.code)}
-                className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${
-                  currentLanguage === lang.code 
-                    ? 'border-primary' 
-                    : 'border-transparent opacity-70'
-                }`}
-                aria-label={`Switch to ${t(lang.translationKey)}`}
-              >
-                <img 
-                  src={lang.flag} 
-                  alt={t(lang.translationKey)} 
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
-        </nav>
-      </div>
+      <MobileMenu 
+        isOpen={isMenuOpen}
+        navLinks={navLinks}
+        currentPath={location.pathname}
+        languages={languages}
+        currentLanguage={currentLanguage}
+        changeLanguage={changeLanguage}
+      />
     </header>
   );
 };
