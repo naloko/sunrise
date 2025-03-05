@@ -61,13 +61,23 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // This ensures the state is in sync with i18n's language
+    setCurrentLanguage(i18n.language);
+  }, [i18n.language]);
+
+  useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
   const changeLanguage = (langCode: string) => {
-    i18n.changeLanguage(langCode);
-    setCurrentLanguage(langCode);
-    document.documentElement.lang = langCode;
+    if (langCode === currentLanguage) return; // Don't change if already selected
+    
+    i18n.changeLanguage(langCode)
+      .then(() => {
+        setCurrentLanguage(langCode);
+        document.documentElement.lang = langCode;
+      })
+      .catch(error => console.error("Language change failed:", error));
   };
 
   return (
