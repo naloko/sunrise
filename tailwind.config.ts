@@ -29,7 +29,6 @@ export default {
 					DEFAULT: 'var(--primary)',
 					dark: 'var(--primary-dark)',
 					foreground: 'hsl(var(--primary-foreground))',
-					'10': 'rgba(230, 179, 35, 0.1)' // Explicitly adding primary/10 value
 				},
 				secondary: {
 					DEFAULT: 'var(--secondary)',
