@@ -1,22 +1,15 @@
 
-/* Video background styles */
-.hero-video-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
+/* Hero section styling */
+@layer base {
+  .hero-video-container {
+    @apply absolute inset-0 overflow-hidden;
+  }
 
-.hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 0;
-  pointer-events: none;
-}
+  .hero-video {
+    @apply w-full h-full object-cover;
+  }
 
-/* Hero overlay for better text visibility */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70;
+  }
 }

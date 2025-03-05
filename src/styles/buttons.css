@@ -1,4 +1,11 @@
 
+/* Button Styles */
+@layer base {
+  .glass-button {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-8 rounded-lg font-medium transition-all hover:bg-white/20;
+  }
+}
+
 /* Call-to-action button enhancement */
 .cta-button {
   position: relative;
