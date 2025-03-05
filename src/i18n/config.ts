@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import enTranslation from './locales/en.json';
 import zhTranslation from './locales/zh.json';
 
-// Initialize i18next
+// Initialize i18next with optimized configuration
 i18n
   .use(initReactI18next)
   .init({
@@ -23,6 +23,20 @@ i18n
     },
     detection: {
       order: ['localStorage', 'navigator']
+    },
+    // Performance optimizations
+    load: 'languageOnly',
+    ns: ['translation'],
+    defaultNS: 'translation',
+    keySeparator: '.',
+    nsSeparator: ':',
+    pluralSeparator: '_',
+    contextSeparator: '_',
+    // Only initialize what's needed
+    initImmediate: navigator.onLine,
+    // Cache translations
+    cache: {
+      enabled: true
     }
   });
 

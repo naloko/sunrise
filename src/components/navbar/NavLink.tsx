@@ -1,4 +1,5 @@
 
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -30,4 +31,5 @@ const NavLink = ({ path, translationKey, isScrolled, isActive }: NavLinkProps) =
   );
 };
 
-export default NavLink;
+// Using memo to prevent unnecessary re-renders
+export default memo(NavLink);
