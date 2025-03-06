@@ -21,7 +21,7 @@ const Index = () => {
     <main>
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center">
-        <YoutubeBackground videoId="TzfnlPxCZv0" />
+        <YoutubeBackground videoFile="/solar stock for hero.mp4" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
