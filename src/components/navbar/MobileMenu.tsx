@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Globe } from 'lucide-react';
 import { LanguageOption } from './navData';
 
 interface MobileMenuProps {
@@ -49,7 +50,10 @@ const MobileMenu = ({
         </Link>
         
         <div className="py-2 border-t border-gray-100">
-          <p className="text-sm text-gray-500 mb-2">{t('common.language')}</p>
+          <p className="text-sm text-gray-500 mb-2 flex items-center">
+            <Globe className="h-4 w-4 mr-1" />
+            {t('common.language')}
+          </p>
           <div className="flex flex-col space-y-2">
             {languages.map((lang) => (
               <button

@@ -12,7 +12,8 @@
   },
   "language": {
     "english": "English",
-    "chinese": "Chinese"
+    "chinese": "Chinese",
+    "select": "Select Language"
   },
   "hero": {
     "title": "Innovative Solar Solutions for a Brighter Future",
@@ -20,6 +21,6 @@
     "cta": "Explore Solutions"
   },
   "common": {
-    "language": "Language:"
+    "language": "Language"
   }
 }

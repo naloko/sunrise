@@ -1,7 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Globe } from 'lucide-react';
 import { LanguageOption } from './navData';
 
 interface LanguageSelectorProps {
@@ -43,6 +43,7 @@ const LanguageSelector = ({ languages, currentLanguage, changeLanguage }: Langua
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
+        <Globe className="h-4 w-4 mr-1" />
         <span>{getCurrentLanguageName()}</span>
         <ChevronDown className="h-4 w-4" />
       </button>
