@@ -33,7 +33,7 @@ i18n
     pluralSeparator: '_',
     contextSeparator: '_',
     // Only initialize what's needed
-    initImmediate: navigator.onLine,
+    initImmediate: true,
     // Cache translations
     cache: {
       enabled: true
@@ -44,7 +44,8 @@ i18n
 i18n.on('languageChanged', (lng) => {
   localStorage.setItem('language', lng);
   document.documentElement.lang = lng;
-  console.info(`Switching to ${lng === 'en' ? 'English' : 'Chinese'}`);
+  document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr'; // Handle RTL languages if needed in future
+  console.info(`Switching to ${lng}`);
 });
 
 export default i18n;

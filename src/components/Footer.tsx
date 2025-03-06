@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   Mail, 
   Phone, 
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -27,8 +29,7 @@ const Footer = () => {
               <span className="text-xl font-bold">SUNRISE</span>
             </div>
             <p className="text-gray-400 text-sm">
-              Sunrise New Energy Technology Co., Ltd. dedicated to delivering all-encompassing one-stop solar solutions 
-              for both residential and commercial & industrial sectors across Nigeria.
+              {t('footer.company')}
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Facebook">
@@ -48,36 +49,36 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('common.quickLinks')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  About Us
+                  {t('footer.about')}
                 </Link>
               </li>
               <li>
                 <Link to="/products" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Our Products
+                  {t('footer.products')}
                 </Link>
               </li>
               <li>
                 <Link to="/solutions" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Solar Solutions
+                  {t('footer.solutions')}
                 </Link>
               </li>
               <li>
                 <Link to="/projects" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Case Studies
+                  {t('footer.caseStudies')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Contact Us
+                  {t('footer.contact')}
                 </Link>
               </li>
             </ul>
@@ -85,36 +86,36 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Services</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('common.ourServices')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/services/residential" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Residential Installation
+                  {t('footer.residential')}
                 </Link>
               </li>
               <li>
                 <Link to="/services/commercial" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Commercial Installation
+                  {t('footer.commercial')}
                 </Link>
               </li>
               <li>
                 <Link to="/services/panel-cleaning" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Panel Cleaning
+                  {t('footer.cleaning')}
                 </Link>
               </li>
               <li>
                 <Link to="/services/power" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Back-up Power
+                  {t('footer.power')}
                 </Link>
               </li>
               <li>
                 <Link to="/services/products" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Product Sales
+                  {t('footer.sales')}
                 </Link>
               </li>
             </ul>
@@ -122,7 +123,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('common.contactUs')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
@@ -145,7 +146,7 @@ const Footer = () => {
               <li className="flex items-center">
                 <Clock className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                 <span className="text-gray-400 text-sm">
-                  Mon - Fri: 8:00AM - 5:00PM
+                  {t('footer.workingHours')}
                 </span>
               </li>
             </ul>
@@ -157,18 +158,18 @@ const Footer = () => {
         {/* Bottom footer */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            &copy; {currentYear} Sunrise New Energy Technology Co., Ltd. All rights reserved.
+            &copy; {currentYear} Sunrise New Energy Technology Co., Ltd. {t('common.allRightsReserved')}
           </p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6 text-sm">
               <li>
                 <a href="#" className="text-gray-500 hover:text-primary transition-colors">
-                  Privacy Policy
+                  {t('common.privacyPolicy')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-500 hover:text-primary transition-colors">
-                  Terms of Service
+                  {t('common.termsOfService')}
                 </a>
               </li>
             </ul>

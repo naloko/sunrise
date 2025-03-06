@@ -8,7 +8,8 @@
     "contact": "联系我们"
   },
   "cta": {
-    "quote": "获取报价"
+    "quote": "获取报价",
+    "explore": "探索解决方案"
   },
   "language": {
     "english": "英文",
@@ -21,6 +22,46 @@
     "cta": "探索解决方案"
   },
   "common": {
-    "language": "语言"
+    "language": "语言",
+    "contactUs": "联系我们",
+    "quickLinks": "快速链接",
+    "ourServices": "我们的服务",
+    "allRightsReserved": "版权所有",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "submit": "提交",
+    "sending": "发送中...",
+    "sentSuccess": "您的消息已成功发送！",
+    "getBackSoon": "我们会尽快回复您。"
+  },
+  "contact": {
+    "fullName": "姓名 *",
+    "email": "电子邮箱 *",
+    "phone": "电话号码",
+    "company": "公司名称",
+    "subject": "主题 *",
+    "message": "留言 *",
+    "sendMessage": "发送消息",
+    "selectSubject": "请选择主题",
+    "residential": "住宅安装",
+    "commercial": "商业安装",
+    "storage": "能源存储系统",
+    "product": "产品咨询",
+    "service": "服务请求",
+    "other": "其他"
+  },
+  "footer": {
+    "company": "Sunrise新能源技术有限公司致力于为尼日利亚的住宅和商业及工业领域提供全方位的一站式太阳能解决方案。",
+    "about": "关于我们",
+    "products": "我们的产品",
+    "solutions": "太阳能解决方案",
+    "caseStudies": "案例研究",
+    "contact": "联系我们",
+    "residential": "住宅安装",
+    "commercial": "商业安装",
+    "cleaning": "太阳能板清洁",
+    "power": "备用电源",
+    "sales": "产品销售",
+    "workingHours": "周一至周五: 上午8:00 - 下午5:00"
   }
 }

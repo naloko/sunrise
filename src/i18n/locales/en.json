@@ -8,7 +8,8 @@
     "contact": "Contact"
   },
   "cta": {
-    "quote": "Get A Quote"
+    "quote": "Get A Quote",
+    "explore": "Explore Solutions"
   },
   "language": {
     "english": "English",
@@ -21,6 +22,46 @@
     "cta": "Explore Solutions"
   },
   "common": {
-    "language": "Language"
+    "language": "Language",
+    "contactUs": "Contact Us",
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
+    "allRightsReserved": "All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "sentSuccess": "Your message has been sent successfully!",
+    "getBackSoon": "We'll get back to you as soon as possible."
+  },
+  "contact": {
+    "fullName": "Full Name *",
+    "email": "Email Address *",
+    "phone": "Phone Number",
+    "company": "Company Name",
+    "subject": "Subject *",
+    "message": "Message *",
+    "sendMessage": "Send Message",
+    "selectSubject": "Select a subject",
+    "residential": "Residential Installation",
+    "commercial": "Commercial Installation",
+    "storage": "Energy Storage System",
+    "product": "Product Inquiry",
+    "service": "Service Request",
+    "other": "Other"
+  },
+  "footer": {
+    "company": "Sunrise New Energy Technology Co., Ltd. dedicated to delivering all-encompassing one-stop solar solutions for both residential and commercial & industrial sectors across Nigeria.",
+    "about": "About Us",
+    "products": "Our Products",
+    "solutions": "Solar Solutions",
+    "caseStudies": "Case Studies",
+    "contact": "Contact Us",
+    "residential": "Residential Installation",
+    "commercial": "Commercial Installation",
+    "cleaning": "Panel Cleaning",
+    "power": "Back-up Power",
+    "sales": "Product Sales",
+    "workingHours": "Mon - Fri: 8:00AM - 5:00PM"
   }
 }

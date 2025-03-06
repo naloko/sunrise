@@ -1,8 +1,10 @@
 
 import { useState } from 'react';
 import { toast } from "sonner";
+import { useTranslation } from 'react-i18next';
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,8 +30,8 @@ const ContactForm = () => {
 
     // Simulate form submission
     setTimeout(() => {
-      toast.success("Your message has been sent successfully!", {
-        description: "We'll get back to you as soon as possible.",
+      toast.success(t('common.sentSuccess'), {
+        description: t('common.getBackSoon'),
         position: "top-center",
       });
       
@@ -52,7 +54,7 @@ const ContactForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Full Name *
+            {t('contact.fullName')}
           </label>
           <input
             type="text"
@@ -68,7 +70,7 @@ const ContactForm = () => {
         
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address *
+            {t('contact.email')}
           </label>
           <input
             type="email"
@@ -84,7 +86,7 @@ const ContactForm = () => {
 
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-            Phone Number
+            {t('contact.phone')}
           </label>
           <input
             type="tel"
@@ -99,7 +101,7 @@ const ContactForm = () => {
 
         <div>
           <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-            Company Name
+            {t('contact.company')}
           </label>
           <input
             type="text"
@@ -115,7 +117,7 @@ const ContactForm = () => {
 
       <div>
         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-          Subject *
+          {t('contact.subject')}
         </label>
         <select
           id="subject"
@@ -125,19 +127,19 @@ const ContactForm = () => {
           required
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
         >
-          <option value="" disabled>Select a subject</option>
-          <option value="Residential Installation">Residential Installation</option>
-          <option value="Commercial Installation">Commercial Installation</option>
-          <option value="Energy Storage System">Energy Storage System</option>
-          <option value="Product Inquiry">Product Inquiry</option>
-          <option value="Service Request">Service Request</option>
-          <option value="Other">Other</option>
+          <option value="" disabled>{t('contact.selectSubject')}</option>
+          <option value="Residential Installation">{t('contact.residential')}</option>
+          <option value="Commercial Installation">{t('contact.commercial')}</option>
+          <option value="Energy Storage System">{t('contact.storage')}</option>
+          <option value="Product Inquiry">{t('contact.product')}</option>
+          <option value="Service Request">{t('contact.service')}</option>
+          <option value="Other">{t('contact.other')}</option>
         </select>
       </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message *
+          {t('contact.message')}
         </label>
         <textarea
           id="message"
@@ -163,10 +165,10 @@ const ContactForm = () => {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Sending...
+              {t('common.sending')}
             </span>
           ) : (
-            'Send Message'
+            t('contact.sendMessage')
           )}
         </button>
       </div>
