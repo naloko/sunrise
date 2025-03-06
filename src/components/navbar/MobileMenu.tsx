@@ -1,13 +1,13 @@
 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { LanguageFlag } from './LanguageSelector';
+import { LanguageOption } from './navData';
 
 interface MobileMenuProps {
   isOpen: boolean;
   navLinks: Array<{ path: string; translationKey: string }>;
   currentPath: string;
-  languages: LanguageFlag[];
+  languages: LanguageOption[];
   currentLanguage: string;
   changeLanguage: (code: string) => void;
 }
@@ -48,26 +48,23 @@ const MobileMenu = ({
           {t('cta.quote')}
         </Link>
         
-        <div className="flex items-center space-x-3 py-2">
-          <span className="text-sm text-gray-500">{t('common.language')}</span>
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => changeLanguage(lang.code)}
-              className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${
-                currentLanguage === lang.code 
-                  ? 'border-primary' 
-                  : 'border-transparent opacity-70'
-              }`}
-              aria-label={`Switch to ${t(lang.translationKey)}`}
-            >
-              <img 
-                src={lang.flag} 
-                alt={t(lang.translationKey)} 
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
+        <div className="py-2 border-t border-gray-100">
+          <p className="text-sm text-gray-500 mb-2">{t('common.language')}</p>
+          <div className="flex flex-col space-y-2">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => changeLanguage(lang.code)}
+                className={`text-left py-2 px-3 rounded-md transition-colors ${
+                  currentLanguage === lang.code 
+                    ? 'bg-primary/10 text-primary font-medium' 
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                {t(lang.translationKey)}
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
     </div>

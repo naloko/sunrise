@@ -3,23 +3,24 @@
   "navigation": {
     "home": "首页",
     "about": "关于我们",
-    "products": "产品",
-    "projects": "项目",
+    "products": "产品展示",
+    "projects": "项目案例",
     "contact": "联系我们"
   },
   "cta": {
     "quote": "获取报价"
   },
   "language": {
-    "english": "英语",
-    "chinese": "中文"
+    "english": "英文",
+    "chinese": "中文",
+    "select": "选择语言"
   },
   "hero": {
     "title": "创新太阳能解决方案，创造更美好的未来",
-    "subtitle": "利用太阳能量，建设可持续发展的世界",
+    "subtitle": "利用太阳能力量，建设可持续发展的世界",
     "cta": "探索解决方案"
   },
   "common": {
-    "language": "语言："
+    "language": "语言"
   }
 }

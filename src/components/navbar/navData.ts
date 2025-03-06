@@ -13,24 +13,21 @@ export const navLinks: NavLink[] = [
   { path: '/contact', label: 'Contact', translationKey: 'navigation.contact' },
 ];
 
-export interface LanguageFlag {
+export interface LanguageOption {
   code: string;
   name: string;
-  flag: string;
   translationKey: string;
 }
 
-export const languages: LanguageFlag[] = [
+export const languages: LanguageOption[] = [
   { 
     code: 'en', 
     name: 'English', 
-    translationKey: 'language.english',
-    flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/NG.svg' 
+    translationKey: 'language.english'
   },
   { 
     code: 'zh', 
-    name: 'Chinese', 
-    translationKey: 'language.chinese',
-    flag: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg' 
+    name: '中文', 
+    translationKey: 'language.chinese'
   }
 ];
