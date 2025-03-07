@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 interface YoutubeBackgroundProps {
@@ -18,11 +17,22 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Ensure the video path is correct by removing the 'public/' prefix if present
+  // Ensure the video path is correct for both development and production
   const getVideoPath = (path: string) => {
     if (!path) return '';
-    // Remove 'public/' prefix if it exists as this is automatically stripped in production
-    return path.startsWith('public/') ? path.replace('public/', '/') : path;
+    
+    // If the path starts with 'public/', remove it
+    if (path.startsWith('public/')) {
+      return path.substring(7); // Remove 'public/' prefix
+    }
+    
+    // If the path already starts with '/', keep it as is
+    if (path.startsWith('/')) {
+      return path;
+    }
+    
+    // Otherwise, add a leading slash
+    return '/' + path;
   };
 
   return (
