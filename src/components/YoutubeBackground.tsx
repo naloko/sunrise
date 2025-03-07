@@ -44,7 +44,7 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             allowFullScreen
             title="Sunrise Solar Solutions Background Video"
           ></iframe>
-        )}
+        )
       ) : (
         <div className="w-full h-full bg-gray-900"></div>
       )}
