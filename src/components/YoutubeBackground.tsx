@@ -18,6 +18,13 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Ensure the video path is correct by removing the 'public/' prefix if present
+  const getVideoPath = (path: string) => {
+    if (!path) return '';
+    // Remove 'public/' prefix if it exists as this is automatically stripped in production
+    return path.startsWith('public/') ? path.replace('public/', '/') : path;
+  };
+
   return (
     <div className="hero-video-container">
       {isLoaded ? (
@@ -31,7 +38,7 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             playsInline
             poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           >
-            <source src={videoFile} type="video/mp4" />
+            <source src={getVideoPath(videoFile)} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         ) : (
