@@ -1,8 +1,9 @@
+
 import { useState, useEffect } from 'react';
 
 interface YoutubeBackgroundProps {
-  videoId?: string; // Made optional since we're now supporting local videos too
-  videoFile?: string; // Added for local video file path
+  videoId?: string; // For YouTube videos
+  videoFile?: string; // For local video files
 }
 
 const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
@@ -17,22 +18,13 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Ensure the video path is correct for both development and production
-  const getVideoPath = (path: string) => {
+  // Fixed video path handling for production builds
+  const getVideoPath = (path: string): string => {
     if (!path) return '';
     
-    // If the path starts with 'public/', remove it
-    if (path.startsWith('public/')) {
-      return path.substring(7); // Remove 'public/' prefix
-    }
-    
-    // If the path already starts with '/', keep it as is
-    if (path.startsWith('/')) {
-      return path;
-    }
-    
-    // Otherwise, add a leading slash
-    return '/' + path;
+    // For assets in the public directory, they should be referenced from the root
+    // Remove any leading 'public/' as it's not part of the path in production
+    return path.replace(/^public\//, '');
   };
 
   return (
@@ -46,13 +38,13 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             muted
             loop
             playsInline
-            poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            poster="/placeholder.svg"
           >
             <source src={getVideoPath(videoFile)} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         ) : (
-          // YouTube embed (kept for backward compatibility)
+          // YouTube embed
           <iframe 
             className="hero-video"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&version=3&vq=hd720&enablejsapi=1&iv_load_policy=3&fs=0&annotation=0`}
