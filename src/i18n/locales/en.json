@@ -182,5 +182,28 @@
       "team": "Team Members",
       "co2": "Tons of CO₂ Saved"
     }
+  },
+  "services": {
+    "whatWeOffer": "What We Offer",
+    "description": "From initial consultation to installation and maintenance, we provide end-to-end solar energy solutions tailored to your needs.",
+    "residential": {
+      "description": "Custom solar solutions for homes, designed to reduce electricity bills and provide energy independence."
+    },
+    "commercial": {
+      "description": "Large-scale solar solutions for businesses and industries, reducing operational costs and carbon footprint."
+    },
+    "cleaning": {
+      "description": "Professional cleaning services to maintain optimal performance and extend the life of your solar panels."
+    },
+    "backup": {
+      "description": "Reliable energy storage solutions to keep your power on during grid outages or unstable electricity supply."
+    },
+    "sales": {
+      "description": "Quality solar products available for purchase, with expert advice on selecting the right equipment."
+    },
+    "maintenance": {
+      "title": "Maintenance & Repair",
+      "description": "Regular maintenance and prompt repair services to ensure your solar system performs at its best."
+    }
   }
 }

@@ -7,21 +7,24 @@ import {
   Wrench,
   ArrowRight 
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../AnimatedSection';
 import ServiceCard from './ServiceCard';
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
+  
   const services = [
     {
       icon: <Home className="w-12 h-12 text-primary mb-4" />,
-      title: "Residential Installation",
-      description: "Custom solar solutions for homes, designed to reduce electricity bills and provide energy independence.",
+      titleKey: "footer.residential",
+      descriptionKey: "services.residential.description",
       link: "/services/residential"
     },
     {
       icon: <Factory className="w-12 h-12 text-primary mb-4" />,
-      title: "Commercial Installation",
-      description: "Large-scale solar solutions for businesses and industries, reducing operational costs and carbon footprint.",
+      titleKey: "footer.commercial",
+      descriptionKey: "services.commercial.description",
       link: "/services/commercial"
     },
     {
@@ -35,14 +38,14 @@ const ServicesSection = () => {
               <path d="m4 9 2-2"/>
               <path d="M20 9 18 7"/>
             </svg>,
-      title: "Panel Cleaning",
-      description: "Professional cleaning services to maintain optimal performance and extend the life of your solar panels.",
+      titleKey: "footer.cleaning",
+      descriptionKey: "services.cleaning.description",
       link: "/services/panel-cleaning"
     },
     {
       icon: <Battery className="w-12 h-12 text-primary mb-4" />,
-      title: "Back-Up Power",
-      description: "Reliable energy storage solutions to keep your power on during grid outages or unstable electricity supply.",
+      titleKey: "footer.power",
+      descriptionKey: "services.backup.description",
       link: "/services/backup-power"
     },
     {
@@ -53,14 +56,14 @@ const ServicesSection = () => {
               <path d="M4 10V7a1 1 0 0 1 1-1h3"/>
               <circle cx="12" cy="12" r="3"/>
             </svg>,
-      title: "Product Sales",
-      description: "Quality solar products available for purchase, with expert advice on selecting the right equipment.",
+      titleKey: "footer.sales",
+      descriptionKey: "services.sales.description",
       link: "/services/product-sales"
     },
     {
       icon: <Wrench className="w-12 h-12 text-primary mb-4" />,
-      title: "Maintenance & Repair",
-      description: "Regular maintenance and prompt repair services to ensure your solar system performs at its best.",
+      titleKey: "services.maintenance.title",
+      descriptionKey: "services.maintenance.description",
       link: "/services/maintenance"
     }
   ];
@@ -70,10 +73,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <span className="section-subheading">What we offer</span>
-            <h2 className="section-heading">Our Services</h2>
+            <span className="section-subheading">{t('services.whatWeOffer')}</span>
+            <h2 className="section-heading">{t('common.ourServices')}</h2>
             <p className="max-w-3xl mx-auto text-gray-600 mt-4">
-              From initial consultation to installation and maintenance, we provide end-to-end solar energy solutions tailored to your needs.
+              {t('services.description')}
             </p>
           </div>
         </AnimatedSection>
@@ -83,8 +86,8 @@ const ServicesSection = () => {
             <AnimatedSection key={index} animation="fade-in" delay={(index + 1) * 100}>
               <ServiceCard 
                 icon={service.icon}
-                title={service.title}
-                description={service.description}
+                titleKey={service.titleKey}
+                descriptionKey={service.descriptionKey}
                 link={service.link}
               />
             </AnimatedSection>
