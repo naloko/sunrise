@@ -13,23 +13,22 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
     // Delay loading the video for better initial page load
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Simplified video path handling - directly use the filename
+  // Ensure video path is correctly formatted for both dev and production
   const getVideoPath = (path: string): string => {
     if (!path) return '';
     
-    // For assets in the public directory, they should be referenced from the root
-    // Remove any leading 'public/' as it's not part of the path in production
-    return path.replace(/^public\//, '');
+    // Just use the filename directly without any path manipulation
+    return path.startsWith('/') ? path : `/${path}`;
   };
 
   return (
     <div className="hero-video-container">
-      {isLoaded ? (
+      {isLoaded && (
         videoFile ? (
           // Local video file
           <video
@@ -39,11 +38,12 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             loop
             playsInline
             poster="/placeholder.svg"
+            key={videoFile} // Add key to force remount when path changes
           >
             <source src={getVideoPath(videoFile)} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        ) : (
+        ) : videoId ? (
           // YouTube embed
           <iframe 
             className="hero-video"
@@ -53,9 +53,9 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             allowFullScreen
             title="Sunrise Solar Solutions Background Video"
           ></iframe>
+        ) : (
+          <div className="w-full h-full bg-gray-900"></div>
         )
-      ) : (
-        <div className="w-full h-full bg-gray-900"></div>
       )}
       <div className="hero-overlay"></div>
     </div>
