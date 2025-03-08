@@ -19,7 +19,12 @@
   "hero": {
     "title": "创新太阳能解决方案，创造更美好的未来",
     "subtitle": "利用太阳能力量，建设可持续发展的世界",
-    "cta": "探索解决方案"
+    "cta": "探索解决方案",
+    "oneStop": "一站式",
+    "solarSolutions": "太阳能解决方案",
+    "description": "Sunrise致力于为尼日利亚的住宅和商业领域提供全方位的太阳能解决方案。",
+    "getStarted": "立即开始",
+    "learnMore": "了解更多"
   },
   "common": {
     "language": "语言",
@@ -32,7 +37,11 @@
     "submit": "提交",
     "sending": "发送中...",
     "sentSuccess": "您的消息已成功发送！",
-    "getBackSoon": "我们会尽快回复您。"
+    "getBackSoon": "我们会尽快回复您。",
+    "viewDetails": "查看详情",
+    "learnMore": "了解更多",
+    "viewProject": "查看项目",
+    "viewAll": "查看全部"
   },
   "contact": {
     "fullName": "姓名 *",
@@ -63,5 +72,115 @@
     "power": "备用电源",
     "sales": "产品销售",
     "workingHours": "周一至周五: 上午8:00 - 下午5:00"
+  },
+  "sections": {
+    "benefits": {
+      "subtitle": "为什么选择我们",
+      "title": "Sunrise优势",
+      "description": "体验选择Sunrise满足您太阳能需求的优势。"
+    },
+    "products": {
+      "subtitle": "我们的产品系列",
+      "title": "一站式太阳能解决方案",
+      "description": "我们全面的太阳能产品系列，为家庭和企业提供高效、可靠和可持续的电力解决方案。",
+      "viewAll": "查看所有产品"
+    },
+    "projects": {
+      "subtitle": "近期项目",
+      "title": "精选项目",
+      "description": "探索我们成功的太阳能安装案例，了解我们带来的积极影响。",
+      "viewAll": "查看所有项目"
+    },
+    "about": {
+      "subtitle": "关于Sunrise",
+      "title": "体验优质太阳能解决方案",
+      "description1": "Sunrise新能源技术有限公司在尼日利亚卡诺州成立，致力于为尼日利亚的住宅和商业及工业领域提供全方位的一站式太阳能解决方案。",
+      "description2": "其母公司山东龙光天旭太阳能有限公司是先进太阳能解决方案的全球领导者。凭借先进技术和丰富经验，我们提供可靠高效的太阳能解决方案。",
+      "cta": "了解更多关于我们"
+    },
+    "cta": {
+      "title": "准备好利用太阳能了吗？",
+      "description": "迈出能源独立和可持续发展的第一步。立即联系我们获取免费咨询。",
+      "contact": "立即联系我们",
+      "learnMore": "了解更多"
+    }
+  },
+  "benefits": {
+    "eco": {
+      "title": "环保",
+      "description": "通过清洁、可再生的太阳能减少碳足迹，有助于保护环境。"
+    },
+    "savings": {
+      "title": "成本节约",
+      "description": "显著降低电费，系统通常在几年内即可收回成本。"
+    },
+    "independence": {
+      "title": "能源独立",
+      "description": "通过减少对传统电网的依赖，获得对能源需求的控制。"
+    },
+    "power": {
+      "title": "可靠电力",
+      "description": "通过我们的能源存储解决方案，即使在停电期间也能享受不间断电力供应。"
+    },
+    "maintenance": {
+      "title": "低维护",
+      "description": "太阳能系统需要的维护极少，大多数组件设计寿命超过25年。"
+    },
+    "support": {
+      "title": "专家支持",
+      "description": "可获得太阳能专家团队的咨询、设计、安装和持续支持。"
+    }
+  },
+  "products": {
+    "panel": {
+      "title": "太阳能板",
+      "description": "高效光伏板，将阳光转化为家庭或企业用电。"
+    },
+    "battery": {
+      "title": "能源存储电池",
+      "description": "先进的电池系统，在没有阳光时存储多余的太阳能以供使用。"
+    },
+    "inverter": {
+      "title": "逆变器",
+      "description": "将太阳能板产生的直流电转换为家用电器使用的交流电。"
+    },
+    "pump": {
+      "title": "光伏水泵",
+      "description": "太阳能驱动的水泵解决方案，用于农业灌溉和供水。"
+    },
+    "cabinet": {
+      "title": "光伏-ESS一体化柜",
+      "description": "将太阳能发电与能源存储功能相结合的一体化解决方案。"
+    },
+    "rack": {
+      "title": "线缆架",
+      "description": "专业的线缆管理系统，保证太阳能安装的整洁和安全。"
+    }
+  },
+  "projects": {
+    "categories": {
+      "commercial": "商业",
+      "residential": "住宅"
+    },
+    "retail": {
+      "title": "零售店，卡诺州",
+      "description": "16 kWp光伏 + 8kW/15kWh电池系统，平均日产量90 kWh。"
+    },
+    "hotel": {
+      "title": "酒店，塔什干，乌兹别克斯坦",
+      "description": "20 kW并网光伏项目 + 5 kW/10 kWh能源存储系统。"
+    },
+    "sunbelt": {
+      "title": "Sunbelt集团，卡诺州",
+      "description": "221 kW并网光伏项目，年产量360,000 kWh，投资回报率不到2年。"
+    }
+  },
+  "about": {
+    "stats": {
+      "experience": "年经验",
+      "projects": "已完成项目",
+      "team": "团队成员",
+      "co2": "吨二氧化碳减排"
+    }
   }
 }

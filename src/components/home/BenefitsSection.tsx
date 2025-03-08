@@ -7,40 +7,43 @@ import {
   Wrench, 
   Users 
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../AnimatedSection';
 import BenefitCard from './BenefitCard';
 
 const BenefitsSection = () => {
+  const { t } = useTranslation();
+  
   const benefits = [
     {
       icon: <Leaf className="w-12 h-12 text-primary mb-4" />,
-      title: "Eco-Friendly",
-      description: "Reduce your carbon footprint with clean, renewable solar energy that helps protect the environment."
+      titleKey: "benefits.eco.title",
+      descriptionKey: "benefits.eco.description"
     },
     {
       icon: <BarChart className="w-12 h-12 text-primary mb-4" />,
-      title: "Cost Savings",
-      description: "Significant reduction in electricity bills, with systems that typically pay for themselves in a few years."
+      titleKey: "benefits.savings.title",
+      descriptionKey: "benefits.savings.description"
     },
     {
       icon: <Battery className="w-12 h-12 text-primary mb-4" />,
-      title: "Energy Independence",
-      description: "Gain control over your energy needs with reduced dependence on the traditional power grid."
+      titleKey: "benefits.independence.title",
+      descriptionKey: "benefits.independence.description"
     },
     {
       icon: <Zap className="w-12 h-12 text-primary mb-4" />,
-      title: "Reliable Power",
-      description: "Enjoy uninterrupted power supply even during grid outages with our energy storage solutions."
+      titleKey: "benefits.power.title",
+      descriptionKey: "benefits.power.description"
     },
     {
       icon: <Wrench className="w-12 h-12 text-primary mb-4" />,
-      title: "Low Maintenance",
-      description: "Solar systems require minimal maintenance, with most components designed to last 25+ years."
+      titleKey: "benefits.maintenance.title",
+      descriptionKey: "benefits.maintenance.description"
     },
     {
       icon: <Users className="w-12 h-12 text-primary mb-4" />,
-      title: "Expert Support",
-      description: "Access to a team of solar experts for consultation, design, installation, and ongoing support."
+      titleKey: "benefits.support.title",
+      descriptionKey: "benefits.support.description"
     }
   ];
 
@@ -49,10 +52,10 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <span className="text-primary text-sm md:text-base uppercase tracking-wider font-medium mb-2">Why Choose Us</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight">The Sunrise Advantage</h2>
+            <span className="text-primary text-sm md:text-base uppercase tracking-wider font-medium mb-2">{t('sections.benefits.subtitle')}</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight">{t('sections.benefits.title')}</h2>
             <p className="max-w-3xl mx-auto text-gray-300 mt-4">
-              Experience the benefits of choosing Sunrise for your solar energy needs.
+              {t('sections.benefits.description')}
             </p>
           </div>
         </AnimatedSection>
@@ -62,8 +65,8 @@ const BenefitsSection = () => {
             <AnimatedSection key={index} animation="fade-in" delay={(index + 1) * 100}>
               <BenefitCard
                 icon={benefit.icon}
-                title={benefit.title}
-                description={benefit.description}
+                titleKey={benefit.titleKey}
+                descriptionKey={benefit.descriptionKey}
               />
             </AnimatedSection>
           ))}
