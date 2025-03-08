@@ -18,7 +18,7 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Fixed video path handling for production builds
+  // Simplified video path handling - directly use the filename
   const getVideoPath = (path: string): string => {
     if (!path) return '';
     
