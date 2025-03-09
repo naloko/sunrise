@@ -256,7 +256,6 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Our Process</span>
               <h2 className="section-heading">How We Deliver Excellence</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Our proven project delivery process ensures quality, efficiency, and customer satisfaction.
@@ -316,7 +315,6 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Client Feedback</span>
               <h2 className="section-heading">What Our Clients Say</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Hear from our satisfied clients about their experience working with Sunrise Solar.
