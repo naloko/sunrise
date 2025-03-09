@@ -153,7 +153,6 @@ const About = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Meet Our Team</span>
               <h2 className="section-heading">The People Behind Sunrise</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Our team of experts is committed to delivering the best solar solutions for our clients.
