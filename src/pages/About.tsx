@@ -79,7 +79,6 @@ const About = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Our Foundation</span>
               <h2 className="section-heading">Vision & Values</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Our vision and values guide everything we do at Sunrise Solar.
