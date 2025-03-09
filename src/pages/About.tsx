@@ -178,31 +178,16 @@ const About = () => {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection animation="scale-in" delay={200}>
-              <div className="bg-white rounded-xl overflow-hidden shadow-md">
-                <div className="h-64 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Team Member" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-1">Sarah Johnson</h3>
-                  <p className="text-primary font-medium mb-3">Technical Director</p>
-                  <p className="text-gray-600 mb-4">
-                    Sarah brings innovation and technical excellence to all our solar installation projects.
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-
             <AnimatedSection animation="scale-in" delay={300}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <div className="h-64 overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80" alt="Team Member" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-1">Michael Adebayo</h3>
+                  <h3 className="text-xl font-semibold mb-1">Umar Amin</h3>
                   <p className="text-primary font-medium mb-3">Operations Manager</p>
                   <p className="text-gray-600 mb-4">
-                    Michael ensures that all our operations run smoothly and efficiently to deliver the best customer experience.
+                    Umar ensures that all our operations run smoothly and efficiently to deliver the best customer experience.
                   </p>
                 </div>
               </div>
