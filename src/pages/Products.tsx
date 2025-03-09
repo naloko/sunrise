@@ -43,8 +43,7 @@ const Products = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Our Product Range</span>
-              <h2 className="section-heading">One-Stop Solar Solution</h2>
+              <h2 className="section-heading">Our Product Range</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Our comprehensive range of solar energy products designed to provide efficient, 
                 reliable, and sustainable power solutions for homes and businesses.
