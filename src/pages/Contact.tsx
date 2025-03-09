@@ -43,7 +43,6 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <AnimatedSection animation="slide-in-left">
               <div>
-                <span className="section-subheading">Get in Touch</span>
                 <h2 className="section-heading">Contact Information</h2>
                 <p className="text-gray-600 mb-8">
                   We'd love to hear from you. Whether you have a question about our products, services, 
