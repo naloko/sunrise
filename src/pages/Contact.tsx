@@ -134,8 +134,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Frequently Asked Questions</span>
-              <h2 className="section-heading">Common Inquiries</h2>
+              <h2 className="section-heading">Frequently Asked Questions</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Find answers to some of the most common questions about our solar solutions.
               </p>
