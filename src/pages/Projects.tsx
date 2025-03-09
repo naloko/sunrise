@@ -42,7 +42,6 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="section-subheading">Our Portfolio</span>
               <h2 className="section-heading">Featured Projects</h2>
               <p className="max-w-3xl mx-auto text-gray-600 mt-4">
                 Browse through our diverse range of solar installations across residential and commercial sectors.
