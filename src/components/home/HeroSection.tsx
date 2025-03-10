@@ -21,7 +21,7 @@ const HeroSection = () => {
               <Link to="/contact" className="bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all transform hover:scale-105 my-0 mx-[100px] px-[20px] py-[10px]">
                 {t('hero.getStarted')}
               </Link>
-              <Link to="/about" className="glass-button">
+              <Link to="/about" className="glass-button mx-[100px] py-[10px] px-[20px]">
                 {t('hero.learnMore')}
               </Link>
             </div>
