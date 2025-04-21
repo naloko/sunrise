@@ -1,9 +1,9 @@
 
-import HeroSection from '../components/about/HeroSection';
-import CompanyOverviewSection from '../components/about/CompanyOverviewSection';
-import VisionValuesSection from '../components/about/VisionValuesSection';
-import TeamSection from '../components/about/TeamSection';
-import CtaSection from '../components/about/CtaSection';
+import HeroSection from '../components/about/sections/HeroSection';
+import CompanyOverviewSection from '../components/about/sections/CompanyOverviewSection';
+import VisionValuesSection from '../components/about/sections/VisionValuesSection';
+import TeamSection from '../components/about/sections/TeamSection';
+import CtaSection from '../components/about/sections/CtaSection';
 
 const About = () => {
   return (
