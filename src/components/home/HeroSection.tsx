@@ -1,13 +1,11 @@
-
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import YoutubeBackground from '../YoutubeBackground';
-
 const HeroSection = () => {
-  const { t } = useTranslation();
-
-  return (
-    <section className="relative h-screen flex items-center">
+  const {
+    t
+  } = useTranslation();
+  return <section className="relative h-screen flex items-center">
       <YoutubeBackground videoFile="solar stock for hero.mp4" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -20,25 +18,16 @@ const HeroSection = () => {
               {t('hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/contact" 
-                className="bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all transform hover:scale-105 px-4 py-1.5 text-center w-full sm:w-auto text-xs sm:text-sm"
-              >
+              <Link to="/contact" className="bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all transform hover:scale-105 text-center w-full sm:w-auto text-xs sm:text-sm py-[10px] mx-0 px-[5px]">
                 {t('hero.getStarted')}
               </Link>
-              <Link 
-                to="/about" 
-                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg font-medium transition-all hover:bg-white/20 px-4 py-1.5 text-center w-full sm:w-auto text-xs sm:text-sm"
-              >
+              <Link to="/about" className="bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg font-medium transition-all hover:bg-white/20 text-center w-full sm:w-auto text-xs sm:text-sm py-[10px] px-[5px]">
                 {t('hero.learnMore')}
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
-
