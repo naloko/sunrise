@@ -33,21 +33,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <section className="bg-gradient-to-b from-white to-gray-50 py-8">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="block text-[13px] sm:text-sm font-bold uppercase text-yellow-500 tracking-wider mb-1">
-              {t('sections.products.subtitle')}
-            </span>
-            <h2 className="font-extrabold text-[2.1rem] sm:text-4xl md:text-5xl leading-tight text-yellow-400 mb-4">
-              {t('sections.products.title')}
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 font-normal max-w-xl mx-auto mt-2">
-              {t('sections.products.description')}
-            </p>
-          </div>
-        </div>
-      </section>
       <ProductsSection />
       <ServicesSection />
       <AboutSection />

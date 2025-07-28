@@ -1,26 +1,25 @@
 
-/* Section styling */
-.section-subheading {
-  position: relative;
-  display: inline-block;
-}
-
-.section-subheading::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: var(--primary);
-  border-radius: 3px;
+/* Unified Section Typography System */
+.section-badge {
+  @apply inline-block bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-semibold rounded-full px-3 py-1 mb-3 tracking-wide uppercase;
 }
 
 .section-heading {
-  margin-top: 15px;
-  background: linear-gradient(90deg, var(--primary), #f0cc66);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), hsl(45, 85%, 70%));
+  border-radius: 3px;
+}
+
+.section-description {
+  @apply text-base sm:text-lg text-gray-600 max-w-3xl leading-relaxed;
 }

@@ -62,17 +62,21 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <span className="section-subheading">{t('sections.products.subtitle')}</span>
-            <h2 className="section-heading">{t('sections.products.title')}</h2>
-            <p className="max-w-3xl mx-auto text-gray-600 mt-4">
+    <section className="product-section-container">
+      <div className="section-container">
+        <div className="section-header">
+          <AnimatedSection animation="fade-in">
+            <span className="section-badge">
+              {t('sections.products.subtitle')}
+            </span>
+            <h2 className="section-heading">
+              {t('sections.products.title')}
+            </h2>
+            <p className="section-description mx-auto">
               {t('sections.products.description')}
             </p>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
