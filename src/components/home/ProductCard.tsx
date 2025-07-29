@@ -5,20 +5,31 @@ import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface ProductCardProps {
-  icon: ReactNode;
+  icon?: ReactNode;
+  image?: string;
   titleKey: string;
   descriptionKey: string;
   link: string;
   ctaKey?: string;
 }
 
-const ProductCard = ({ icon, titleKey, descriptionKey, link, ctaKey = 'common.learnMore' }: ProductCardProps) => {
+const ProductCard = ({ icon, image, titleKey, descriptionKey, link, ctaKey = 'common.learnMore' }: ProductCardProps) => {
   const { t } = useTranslation();
   
   return (
     <div className="product-card group flex flex-col h-full bg-white border border-gray-100 rounded-xl p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/20">
-      <div className="mb-4 text-primary bg-primary/5 w-14 h-14 flex items-center justify-center rounded-lg">
-        {icon}
+      <div className="mb-4 w-full h-48 rounded-lg overflow-hidden">
+        {image ? (
+          <img 
+            src={image} 
+            alt={t(titleKey)} 
+            className="w-full h-full object-cover transition-transform group-hover:scale-105"
+          />
+        ) : (
+          <div className="text-primary bg-primary/5 w-14 h-14 flex items-center justify-center rounded-lg">
+            {icon}
+          </div>
+        )}
       </div>
       <h3 className="text-xl font-semibold mb-3 text-gray-800">{t(titleKey)}</h3>
       <p className="text-gray-600 mb-6 flex-grow">

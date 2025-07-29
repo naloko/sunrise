@@ -1,14 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { 
-  Sun, 
-  Battery, 
-  Lightbulb, 
-  ChevronRight,
-  Wrench,
-  Zap,
-  ArrowRight 
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../AnimatedSection';
 import ProductCard from './ProductCard';
@@ -18,28 +10,25 @@ const ProductsSection = () => {
   
   const products = [
     {
-      icon: <Sun className="w-12 h-12" />,
+      image: "/lovable-uploads/be0620a9-b789-464b-b554-66d4c2376130.png",
       titleKey: "products.panel.title",
       descriptionKey: "products.panel.description",
       link: "/products/solar-panel"
     },
     {
-      icon: <Battery className="w-12 h-12" />,
+      image: "/lovable-uploads/425045d0-781c-4a14-a59f-41dfee50cafb.png",
       titleKey: "products.battery.title",
       descriptionKey: "products.battery.description",
       link: "/products/energy-storage"
     },
     {
-      icon: <Lightbulb className="w-12 h-12" />,
+      image: "/lovable-uploads/bced3021-9887-4089-9d49-11947726533b.png",
       titleKey: "products.inverter.title",
       descriptionKey: "products.inverter.description",
       link: "/products/inverter"
     },
     {
-      icon: <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C10.5 2 9.24 2.65 8.5 3.65L8.35 3.85C7.65 4.8 7 5.9 7 7V10H5C3.9 10 3 10.9 3 12V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V12C21 10.9 20.1 10 19 10H17V7C17 5.9 16.35 4.8 15.65 3.85L15.5 3.65C14.76 2.65 13.5 2 12 2ZM9 7C9 6.45 9.3 5.8 9.7 5.3L9.85 5.1C10.35 4.45 11.15 4 12 4C12.85 4 13.65 4.45 14.15 5.1L14.3 5.3C14.7 5.8 15 6.45 15 7V10H9V7ZM5 12H19V20H5V12Z" fill="currentColor"/>
-              <circle cx="12" cy="16" r="2" fill="currentColor"/>
-            </svg>,
+      image: "/lovable-uploads/1ab8907a-e014-4416-ba4b-2f7217002d9a.png",
       titleKey: "products.heater.title",
       descriptionKey: "products.heater.description",
       link: "/products/solar-water-heater"
@@ -67,7 +56,7 @@ const ProductsSection = () => {
           {products.map((product, index) => (
             <AnimatedSection key={index} animation="slide-up" delay={(index + 1) * 100}>
               <ProductCard 
-                icon={product.icon}
+                image={product.image}
                 titleKey={product.titleKey}
                 descriptionKey={product.descriptionKey}
                 link={product.link}
