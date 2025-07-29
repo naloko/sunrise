@@ -18,12 +18,12 @@ const ProductCard = ({ icon, image, titleKey, descriptionKey, link, ctaKey = 'co
   
   return (
     <div className="product-card group flex flex-col h-full bg-white border border-gray-100 rounded-xl p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/20">
-      <div className="mb-4 w-full h-48 rounded-lg overflow-hidden">
+      <div className="mb-4 w-full h-48 rounded-lg overflow-hidden bg-gray-50">
         {image ? (
           <img 
             src={image} 
             alt={t(titleKey)} 
-            className="w-full h-full object-cover transition-transform group-hover:scale-105"
+            className="w-full h-full object-contain transition-transform group-hover:scale-105"
           />
         ) : (
           <div className="text-primary bg-primary/5 w-14 h-14 flex items-center justify-center rounded-lg">
