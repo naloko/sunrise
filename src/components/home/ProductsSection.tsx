@@ -36,28 +36,13 @@ const ProductsSection = () => {
       link: "/products/inverter"
     },
     {
-      icon: <Zap className="w-12 h-12" />,
-      titleKey: "products.pump.title",
-      descriptionKey: "products.pump.description",
-      link: "/products/pv-water-pump"
-    },
-    {
-      icon: <Wrench className="w-12 h-12" />,
-      titleKey: "products.cabinet.title",
-      descriptionKey: "products.cabinet.description",
-      link: "/products/pv-ess-cabinet"
-    },
-    {
       icon: <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 6C22 4.9 21.1 4 20 4H15V2H9V4H4C2.9 4 2 4.9 2 6V20C2 21.1 2.9 22 4 22H20C21.1 22 22 21.1 22 20V6ZM20 6V9H4V6H20ZM4 20V11H20V20H4Z" fill="currentColor"/>
-              <path d="M12 12H6V14H12V12Z" fill="currentColor"/>
-              <path d="M18 12H14V14H18V12Z" fill="currentColor"/>
-              <path d="M12 16H6V18H12V16Z" fill="currentColor"/>
-              <path d="M18 16H14V18H18V16Z" fill="currentColor"/>
+              <path d="M12 2C10.5 2 9.24 2.65 8.5 3.65L8.35 3.85C7.65 4.8 7 5.9 7 7V10H5C3.9 10 3 10.9 3 12V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V12C21 10.9 20.1 10 19 10H17V7C17 5.9 16.35 4.8 15.65 3.85L15.5 3.65C14.76 2.65 13.5 2 12 2ZM9 7C9 6.45 9.3 5.8 9.7 5.3L9.85 5.1C10.35 4.45 11.15 4 12 4C12.85 4 13.65 4.45 14.15 5.1L14.3 5.3C14.7 5.8 15 6.45 15 7V10H9V7ZM5 12H19V20H5V12Z" fill="currentColor"/>
+              <circle cx="12" cy="16" r="2" fill="currentColor"/>
             </svg>,
-      titleKey: "products.rack.title",
-      descriptionKey: "products.rack.description",
-      link: "/products/cable-rack"
+      titleKey: "products.heater.title",
+      descriptionKey: "products.heater.description",
+      link: "/products/solar-water-heater"
     }
   ];
 
@@ -78,7 +63,7 @@ const ProductsSection = () => {
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <AnimatedSection key={index} animation="slide-up" delay={(index + 1) * 100}>
               <ProductCard 
