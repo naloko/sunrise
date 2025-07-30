@@ -15,13 +15,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl">
           <div className="animate-fade-in space-y-6">
-            <div className="inline-block">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm">
-                ⚡ Sustainable Energy Solutions
-              </span>
-            </div>
-            
-            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
               <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 {t('hero.oneStop')}
               </span>
