@@ -13,6 +13,11 @@ const Index = () => {
   return (
     <main className="overflow-hidden">
       <HeroSection />
+      <AboutSection />
+      <ProductsSection />
+      <ServicesSection />
+      <BenefitsSection />
+      <ProjectsSection />
       <div className="bg-gradient-to-b from-white to-gray-50 py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
@@ -66,11 +71,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <ProductsSection />
-      <ServicesSection />
-      <AboutSection />
-      <BenefitsSection />
-      <ProjectsSection />
       <CtaSection />
     </main>
   );
