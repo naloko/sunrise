@@ -1,33 +1,64 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import YoutubeBackground from '../YoutubeBackground';
-const HeroSection = () => {
-  const {
-    t
-  } = useTranslation();
-  return <section className="relative h-screen flex items-center">
-      <YoutubeBackground videoFile="solar stock for hero.mp4" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl">
-          <div className="animate-fade-in">
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="text-primary">{t('hero.oneStop')}</span> {t('hero.solarSolutions')}
+const HeroSection = () => {
+  const { t } = useTranslation();
+  
+  return (
+    <section className="relative h-screen flex items-center overflow-hidden">
+      <YoutubeBackground 
+        videoFile="solar stock for hero.mp4" 
+        fallbackImage="/lovable-uploads/61aaa611-9538-46ce-b9a1-3b3a041fc076.png"
+      />
+      
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl">
+          <div className="animate-fade-in space-y-6">
+            <div className="inline-block">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm">
+                ⚡ Sustainable Energy Solutions
+              </span>
+            </div>
+            
+            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+              <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                {t('hero.oneStop')}
+              </span>
+              <br />
+              <span className="block mt-2">{t('hero.solarSolutions')}</span>
             </h1>
-            <p className="text-white/80 text-lg md:text-xl mt-4 mb-8 max-w-2xl">
+            
+            <p className="text-white/90 text-xl md:text-2xl leading-relaxed max-w-3xl font-light">
               {t('hero.description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all transform hover:scale-105 text-center w-full sm:w-auto text-xs sm:text-sm py-[10px] mx-0 px-[5px]">
+            
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link 
+                to="/contact" 
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary/25"
+              >
                 {t('hero.getStarted')}
+                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
-              <Link to="/about" className="bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg font-medium transition-all hover:bg-white/20 text-center w-full sm:w-auto text-xs sm:text-sm py-[10px] px-[5px]">
+              
+              <Link 
+                to="/about" 
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 rounded-xl transition-all duration-300"
+              >
                 {t('hero.learnMore')}
+                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+      
+    </section>
+  );
 };
 export default HeroSection;

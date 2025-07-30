@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 interface YoutubeBackgroundProps {
   videoId?: string; // For YouTube videos
   videoFile?: string; // For local video files
+  fallbackImage?: string; // For fallback background image
 }
 
-const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
+const YoutubeBackground = ({ videoId, videoFile, fallbackImage }: YoutubeBackgroundProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             muted
             loop
             playsInline
-            poster="/placeholder.svg"
+            poster={fallbackImage || "/placeholder.svg"}
             key={videoFile} // Add key to force remount when path changes
           >
             <source src={getVideoPath(videoFile)} type="video/mp4" />
@@ -53,6 +54,11 @@ const YoutubeBackground = ({ videoId, videoFile }: YoutubeBackgroundProps) => {
             allowFullScreen
             title="Sunrise Solar Solutions Background Video"
           ></iframe>
+        ) : fallbackImage ? (
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${fallbackImage})` }}
+          ></div>
         ) : (
           <div className="w-full h-full bg-gray-900"></div>
         )
