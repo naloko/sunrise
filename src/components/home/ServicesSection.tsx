@@ -16,52 +16,25 @@ const ServicesSection = () => {
   
   const services = [
     {
-      icon: <Home className="w-12 h-12 text-primary mb-4" />,
+      icon: <img src="/lovable-uploads/3d0d2bd7-3c44-405c-8551-3fb6a83a3b5a.png" alt="Residential Solar" className="w-16 h-12 object-cover rounded mb-4" />,
       titleKey: "footer.residential",
       descriptionKey: "services.residential.description",
       link: "/services/residential"
     },
     {
-      icon: <Factory className="w-12 h-12 text-primary mb-4" />,
+      icon: <img src="/lovable-uploads/54962123-de4d-433b-be8b-6d55426d4143.png" alt="Commercial Solar" className="w-16 h-12 object-cover rounded mb-4" />,
       titleKey: "footer.commercial",
       descriptionKey: "services.commercial.description",
       link: "/services/commercial"
     },
     {
-      icon: <svg className="w-12 h-12 text-primary mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 16.2v-.8a2.5 2.5 0 0 1 5 0v.8"/>
-              <path d="M2 16h20M3 16c0 1 1 2 2 2h14c1 0 2-1 2-2"/>
-              <path d="M7 8v1"/>
-              <path d="M12 8v1"/>
-              <path d="M17 8v1"/>
-              <path d="M12 4V2"/>
-              <path d="m4 9 2-2"/>
-              <path d="M20 9 18 7"/>
-            </svg>,
+      icon: <img src="/lovable-uploads/a713538a-7822-448e-9542-5f3b15d4178d.png" alt="Panel Cleaning" className="w-16 h-12 object-cover rounded mb-4" />,
       titleKey: "footer.cleaning",
       descriptionKey: "services.cleaning.description",
       link: "/services/panel-cleaning"
     },
     {
-      icon: <Battery className="w-12 h-12 text-primary mb-4" />,
-      titleKey: "footer.power",
-      descriptionKey: "services.backup.description",
-      link: "/services/backup-power"
-    },
-    {
-      icon: <svg className="w-12 h-12 text-primary mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 14v3a1 1 0 0 0 1 1h3"/>
-              <path d="M20 14v3a1 1 0 0 1-1 1h-3"/>
-              <path d="M14 4h3a1 1 0 0 1 1 1v3"/>
-              <path d="M4 10V7a1 1 0 0 1 1-1h3"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>,
-      titleKey: "footer.sales",
-      descriptionKey: "services.sales.description",
-      link: "/services/product-sales"
-    },
-    {
-      icon: <Wrench className="w-12 h-12 text-primary mb-4" />,
+      icon: <img src="/lovable-uploads/f00c9af0-421a-4458-826b-a14a7301b7c0.png" alt="Maintenance" className="w-16 h-12 object-cover rounded mb-4" />,
       titleKey: "services.maintenance.title",
       descriptionKey: "services.maintenance.description",
       link: "/services/maintenance"
@@ -81,7 +54,7 @@ const ServicesSection = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <AnimatedSection key={index} animation="fade-in" delay={(index + 1) * 100}>
               <ServiceCard 
