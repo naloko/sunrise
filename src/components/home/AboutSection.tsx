@@ -15,16 +15,13 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection animation="slide-in-left">
             <div>
               <span className="section-subheading">{t('sections.about.subtitle')}</span>
               <h2 className="section-heading">{t('sections.about.title')}</h2>
-              <p className="text-gray-600 mb-6">
-                {t('sections.about.description1')}
-              </p>
               <p className="text-gray-600 mb-6">
                 {t('sections.about.description2')}
               </p>

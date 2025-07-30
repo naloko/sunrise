@@ -36,7 +36,7 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="product-section-container">
+    <section className="py-16 bg-white">
       <div className="section-container">
         <div className="section-header">
           <AnimatedSection animation="fade-in">
